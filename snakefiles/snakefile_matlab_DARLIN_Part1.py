@@ -106,8 +106,8 @@ rule DARLIN:
         file_size = os.path.getsize(f'{input.fq_R1}')*5/1000000000
         print(f"{wildcards.sample}:   FileSize {file_size} G")
         requested_memory=int(file_size*CARLIN_memory_factor)
-        if requested_memory<20:
-            requested_memory=20 # at least request 20G memory
+        if requested_memory<5:
+            requested_memory=5 # at least request 5G memory
         if requested_memory>250:
             requested_memory=250 # do not request more than 200G memory
         print(f"{wildcards.sample}:   Requested memory {requested_memory} G")
